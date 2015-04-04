@@ -1,0 +1,873 @@
+Model {
+  Name			  "fahrbahn"
+  Version		  3.00
+  SimParamPage		  "Solver"
+  SampleTimeColors	  on
+  InvariantConstants	  off
+  WideVectorLines	  off
+  ShowLineWidths	  off
+  ShowPortDataTypes	  off
+  StartTime		  "0.0"
+  StopTime		  "10.0"
+  SolverMode		  "Auto"
+  Solver		  "ode4"
+  RelTol		  "1e-3"
+  AbsTol		  "auto"
+  Refine		  "1"
+  MaxStep		  "auto"
+  InitialStep		  "auto"
+  FixedStep		  "0.01"
+  MaxOrder		  5
+  OutputOption		  "RefineOutputTimes"
+  OutputTimes		  "[]"
+  LoadExternalInput	  off
+  ExternalInput		  "[t, u]"
+  SaveTime		  on
+  TimeSaveName		  "tout"
+  SaveState		  off
+  StateSaveName		  "xout"
+  SaveOutput		  on
+  OutputSaveName	  "yout"
+  LoadInitialState	  off
+  InitialState		  "xInitial"
+  SaveFinalState	  off
+  FinalStateName	  "xFinal"
+  SaveFormat		  "Matrix"
+  LimitMaxRows		  off
+  MaxRows		  "1000"
+  Decimation		  "1"
+  AlgebraicLoopMsg	  "warning"
+  MinStepSizeMsg	  "warning"
+  UnconnectedInputMsg	  "warning"
+  UnconnectedOutputMsg	  "warning"
+  UnconnectedLineMsg	  "warning"
+  InheritedTsInSrcMsg	  "warning"
+  IntegerOverflowMsg	  "warning"
+  UnnecessaryDatatypeConvMsg "none"
+  Int32ToFloatConvMsg	  "warning"
+  SignalLabelMismatchMsg  "none"
+  ConsistencyChecking	  "off"
+  ZeroCross		  on
+  SimulationMode	  "normal"
+  BlockDataTips		  on
+  BlockParametersDataTip  on
+  BlockAttributesDataTip  off
+  BlockPortWidthsDataTip  off
+  BlockDescriptionStringDataTip	off
+  BlockMaskParametersDataTip off
+  ToolBar		  off
+  StatusBar		  off
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  OptimizeBlockIOStorage  on
+  BufferReuse		  on
+  BooleanDataType	  off
+  RTWSystemTargetFile	  "grt.tlc"
+  RTWInlineParameters	  off
+  RTWRetainRTWFile	  off
+  RTWTemplateMakefile	  "grt_default_tmf"
+  RTWMakeCommand	  "make_rtw"
+  RTWGenerateCodeOnly	  off
+  ExtModeMexFile	  "ext_comm"
+  ExtModeBatchMode	  off
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "oneshot"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  off
+  Created		  "Thu Mar 31 08:08:57 2005"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "student"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Mar 31 11:02:41 2005"
+  ModelVersionFormat	  "1.%<AutoIncrement:61>"
+  ConfigurationManager	  "none"
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "fahrbahn"
+    Location		    [2, 40, 1782, 1410]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    212
+    ScreenColor		    "automatic"
+    PaperOrientation	    "portrait"
+    PaperPositionMode	    "auto"
+    PaperType		    "a4letter"
+    PaperUnits		    "inches"
+    ZoomFactor		    "200"
+    AutoZoom		    off
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      Gain
+      Name		      "(c+k)/m"
+      Position		      [225, 1104, 280, 1136]
+      Orientation	      "left"
+      Gain		      "4275"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Derivative
+      Name		      "Derivative"
+      Position		      [285, 340, 315, 370]
+      Orientation	      "left"
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain4"
+      Position		      [365, 105, 395, 135]
+      Gain		      "1"
+      SaturateOnIntegerOverflow	on
+      Port {
+	PortNumber		1
+	Name			"Auto x"
+	TestPoint		off
+	RTWStorageClass		"Auto"
+      }
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain5"
+      Position		      [415, 250, 445, 280]
+      Gain		      "1"
+      SaturateOnIntegerOverflow	on
+      Port {
+	PortNumber		1
+	Name			"Fahrbahn_s"
+	TestPoint		off
+	RTWStorageClass		"Auto"
+      }
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain6"
+      Position		      [405, 340, 435, 370]
+      Orientation	      "left"
+      Gain		      "1"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain7"
+      Position		      [505, 615, 535, 645]
+      Gain		      "1"
+      SaturateOnIntegerOverflow	on
+      Port {
+	PortNumber		1
+	Name			"Auto x"
+	TestPoint		off
+	RTWStorageClass		"Auto"
+      }
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain8"
+      Position		      [535, 660, 565, 690]
+      Gain		      "1"
+      SaturateOnIntegerOverflow	on
+      Port {
+	PortNumber		1
+	Name			"Reifen r"
+	TestPoint		off
+	RTWStorageClass		"Auto"
+      }
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Gain9"
+      Position		      [550, 705, 580, 735]
+      Gain		      "1"
+      SaturateOnIntegerOverflow	on
+      Port {
+	PortNumber		1
+	Name			"Fahrbahn s"
+	TestPoint		off
+	RTWStorageClass		"Auto"
+      }
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [145, 105, 175, 135]
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator1"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [235, 105, 265, 135]
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator2"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [285, 615, 315, 645]
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator3"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [375, 615, 405, 645]
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator4"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [290, 955, 320, 985]
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+    }
+    Block {
+      BlockType		      Integrator
+      Name		      "Integrator5"
+      Ports		      [1, 1, 0, 0, 0]
+      Position		      [420, 955, 450, 985]
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      Ports		      [2, 1, 0, 0, 0]
+      Position		      [485, 111, 530, 244]
+      ShowName		      off
+      Inputs		      "2"
+      DisplayOption	      "signals"
+      Port {
+	PortNumber		1
+	Name			"Fahrbahn 1"
+	TestPoint		off
+	RTWStorageClass		"Auto"
+      }
+    }
+    Block {
+      BlockType		      Mux
+      Name		      "Mux1"
+      Ports		      [3, 1, 0, 0, 0]
+      Position		      [635, 608, 680, 742]
+      ShowName		      off
+      Inputs		      "3"
+      DisplayOption	      "signals"
+      Port {
+	PortNumber		1
+	Name			"Fahrbahn 2"
+	TestPoint		off
+	RTWStorageClass		"Auto"
+      }
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      Ports		      [2, 0, 0, 0, 0]
+      Position		      [720, 171, 750, 204]
+      Floating		      off
+      Location		      [1, 18, 1801, 1411]
+      Open		      off
+      NumInputPorts	      "2"
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+      }
+      Grid		      "on"
+      TimeRange		      "1"
+      YMin		      "0~-5"
+      YMax		      "1~5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      DataFormat	      "StructureWithTime"
+      LimitMaxRows	      on
+      MaxRows		      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      SignalGenerator
+      Name		      "Signal\nGenerator"
+      Position		      [15, 930, 45, 960]
+      WaveForm		      "sine"
+      Amplitude		      "0.1"
+      Frequency		      "10"
+      Units		      "Hertz"
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum"
+      Ports		      [4, 1, 0, 0, 0]
+      Position		      [75, 85, 105, 155]
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "|-++-"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum1"
+      Ports		      [4, 1, 0, 0, 0]
+      Position		      [215, 595, 245, 665]
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "|-++-"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Sum2"
+      Ports		      [5, 1, 0, 0, 0]
+      Position		      [175, 930, 225, 1010]
+      ShowName		      off
+      IconShape		      "round"
+      Inputs		      "+++--"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "c/m"
+      Position		      [100, 929, 145, 961]
+      Gain		      "3750"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "d/M_1"
+      Position		      [115, 175, 170, 215]
+      Orientation	      "left"
+      Gain		      "3.75"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "d/M_2"
+      Position		      [100, 338, 160, 372]
+      Orientation	      "left"
+      NamePlacement	      "alternate"
+      Gain		      "3.75"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "d/M_2\n"
+      Position		      [240, 848, 300, 882]
+      Orientation	      "left"
+      Gain		      "3.75"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "d/M_3"
+      Position		      [255, 685, 310, 725]
+      Orientation	      "left"
+      Gain		      "3.75"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "d/m_1"
+      Position		      [225, 1029, 270, 1061]
+      Orientation	      "left"
+      Gain		      "37.5"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "d/m_2\n"
+      Position		      [225, 1167, 270, 1203]
+      Orientation	      "left"
+      Gain		      "37.5"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      ToFile
+      Name		      "fahrbahn1.mat"
+      Position		      [585, 118, 735, 152]
+      Filename		      "d:\\hemmerlingloos\\fahrbahn1.mat"
+      MatrixName	      "ans"
+      Decimation	      "1"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToFile
+      Name		      "fahrbahn2.mat"
+      Position		      [470, 341, 640, 379]
+      Orientation	      "left"
+      Filename		      "d:\\hemmerlingloos\\fahrbahn2.mat"
+      MatrixName	      "ans"
+      Decimation	      "1"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "k/M_1"
+      Position		      [185, 14, 240, 56]
+      Orientation	      "left"
+      Gain		      "52.5"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "k/M_2"
+      Position		      [325, 524, 380, 566]
+      Orientation	      "left"
+      Gain		      "52.5"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "k/M_2\n"
+      Position		      [110, 249, 165, 281]
+      Orientation	      "left"
+      Gain		      "52.5"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "k/M_2\n1"
+      Position		      [250, 759, 305, 791]
+      Orientation	      "left"
+      Gain		      "52.5"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "k/m_1"
+      Position		      [345, 428, 385, 472]
+      Orientation	      "left"
+      Gain		      "525"
+      SaturateOnIntegerOverflow	on
+    }
+    Line {
+      SrcBlock		      "Derivative"
+      SrcPort		      1
+      DstBlock		      "d/M_2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Integrator"
+      SrcPort		      1
+      Points		      [10, 0; 0, 0]
+      Branch {
+	DstBlock		"Integrator1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 75]
+	DstBlock		"d/M_1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "d/M_1"
+      SrcPort		      1
+      Points		      [-20, 0]
+      DstBlock		      "Sum"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "k/M_2\n"
+      SrcPort		      1
+      Points		      [-43, 0]
+      DstBlock		      "Sum"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "d/M_2"
+      SrcPort		      1
+      Points		      [-65, 0; 0, -235]
+      DstBlock		      "Sum"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "k/M_1"
+      SrcPort		      1
+      Points		      [-118, 0]
+      DstBlock		      "Sum"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sum"
+      SrcPort		      1
+      DstBlock		      "Integrator"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Integrator1"
+      SrcPort		      1
+      Points		      [50, 0]
+      Branch {
+	DstBlock		"Gain4"
+	DstPort			1
+      }
+      Branch {
+	Points			[10, 0; 0, -85]
+	DstBlock		"k/M_1"
+	DstPort			1
+      }
+    }
+    Line {
+      Name		      "Auto x"
+      Labels		      [0, 0]
+      SrcBlock		      "Gain4"
+      SrcPort		      1
+      Points		      [70, 0]
+      DstBlock		      "Mux"
+      DstPort		      1
+    }
+    Line {
+      Name		      "Fahrbahn_s"
+      Labels		      [-1, 1]
+      SrcBlock		      "Gain5"
+      SrcPort		      1
+      Points		      [0, -55]
+      DstBlock		      "Mux"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Gain6"
+      SrcPort		      1
+      Points		      [-20, 0]
+      Branch {
+	DstBlock		"Derivative"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -90]
+	Branch {
+	  DstBlock		  "Gain5"
+	  DstPort		  1
+	}
+	Branch {
+	  DstBlock		  "k/M_2\n"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Integrator2"
+      SrcPort		      1
+      Points		      [10, 0; 0, 0]
+      Branch {
+	DstBlock		"Integrator3"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 75]
+	Branch {
+	  DstBlock		  "d/M_3"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [180, 0; 0, 480]
+	  DstBlock		  "d/m_2\n"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "d/M_3"
+      SrcPort		      1
+      Points		      [-20, 0]
+      DstBlock		      "Sum1"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "k/M_2\n1"
+      SrcPort		      1
+      Points		      [-43, 0]
+      DstBlock		      "Sum1"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "d/M_2\n"
+      SrcPort		      1
+      Points		      [-65, 0; 0, -235]
+      DstBlock		      "Sum1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "k/M_2"
+      SrcPort		      1
+      Points		      [-118, 0]
+      DstBlock		      "Sum1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Sum1"
+      SrcPort		      1
+      DstBlock		      "Integrator2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Integrator3"
+      SrcPort		      1
+      Points		      [50, 0]
+      Branch {
+	DstBlock		"Gain7"
+	DstPort			1
+      }
+      Branch {
+	Points			[10, 0; 0, -85]
+	Branch {
+	  DstBlock		  "k/M_2"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, -95]
+	  DstBlock		  "k/m_1"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      Name		      "Auto x"
+      Labels		      [0, 0]
+      SrcBlock		      "Gain7"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      1
+    }
+    Line {
+      Name		      "Reifen r"
+      Labels		      [0, 0]
+      SrcBlock		      "Gain8"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Sum2"
+      SrcPort		      1
+      DstBlock		      "Integrator4"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Integrator4"
+      SrcPort		      1
+      Points		      [30, 0]
+      Branch {
+	DstBlock		"Integrator5"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -105]
+	DstBlock		"d/M_2\n"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 75]
+	DstBlock		"d/m_1"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "d/m_1"
+      SrcPort		      1
+      Points		      [-20, 0]
+      DstBlock		      "Sum2"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "(c+k)/m"
+      SrcPort		      1
+      Points		      [-54, 0]
+      DstBlock		      "Sum2"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "d/m_2\n"
+      SrcPort		      1
+      Points		      [-75, 0; 0, -215]
+      DstBlock		      "Sum2"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "c/m"
+      SrcPort		      1
+      Points		      [16, 0]
+      DstBlock		      "Sum2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "k/m_1"
+      SrcPort		      1
+      Points		      [-265, 0; 0, 465]
+      DstBlock		      "Sum2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Integrator5"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[0, 150]
+	DstBlock		"(c+k)/m"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -195]
+	Branch {
+	  Points		  [0, -100]
+	  DstBlock		  "Gain8"
+	  DstPort		  1
+	}
+	Branch {
+	  DstBlock		  "k/M_2\n1"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      Name		      "Fahrbahn s"
+      Labels		      [0, 0]
+      SrcBlock		      "Gain9"
+      SrcPort		      1
+      DstBlock		      "Mux1"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Signal\nGenerator"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[20, 0]
+	Branch {
+	  DstBlock		  "c/m"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 285; 455, 0]
+	  DstBlock		  "Gain9"
+	  DstPort		  1
+	}
+      }
+      Branch {
+	Points			[0, -535; 390, 0]
+	DstBlock		"Gain6"
+	DstPort			1
+      }
+    }
+    Line {
+      Name		      "Fahrbahn 1"
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      Points		      [20, 0]
+      Branch {
+	Labels			[1, 0]
+	DstBlock		"Scope"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -45]
+	DstBlock		"fahrbahn1.mat"
+	DstPort			1
+      }
+    }
+    Line {
+      Name		      "Fahrbahn 2"
+      SrcBlock		      "Mux1"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	Points			[15, 0; 0, -480]
+	DstBlock		"Scope"
+	DstPort			2
+      }
+      Branch {
+	Labels			[2, 0]
+	Points			[15, 0; 0, -315]
+	DstBlock		"fahrbahn2.mat"
+	DstPort			1
+      }
+    }
+  }
+}
